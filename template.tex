@@ -22,9 +22,9 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[ 11pt ]{resume}
+\documentclass[ 10.5pt ]{resume}
 
-\usepackage{utopia}
+\usepackage{times}
 
 %------------------------------------------------
 
@@ -49,9 +49,8 @@
 \begin{rSection}{Education}
 
 	\textbf{University of California, Los Angeles} \hfill \textit{June 2021} \\
-	B.S. in Electrical Engineering \\
-	Tech Breadth in Computer Science \smallskip \\
-	Summa cum laude \\
+	B.S. in Electrical Engineering, summa cum laude \\
+	Tech Breadth in Computer Science \\
 	Member of Eta Kappa Nu and Beta Theta Pi \\
 	Overall GPA: 3.98 / 4.0
 
@@ -64,8 +63,9 @@
 \begin{rSection}{Experience}
 
 	\begin{rSubsection}{Katana Graph}{July 2021 - Present}{Software Engineer}{Austin, TX}
-		\item Developed a distributed and multi-threaded Graph implementation in C++ to achieve 100x faster updates than previous representation; $<$ 10\% performance hit to read-only applications
-		\item Designed and implemented a Graph abstraction layer to easily support different implementations at runtime; included a programming pattern to easily eliminate virtualization/type-erasure overhead for performance-sensitive sections
+		\item Designed and developed a novel distributed and multi-threaded Graph implementation in C++; achieved 100x faster updates with only minor ($<$10\%) regression in lookup/scan speed; resulted in a 2x speedup in our workloads and is now the primary graph format used at Katana
+		\item Lead designer and developer of an optimized BSP-algorithm framework using C++ metaprogramming; rewrote BFS and Pagerank implementations using this class to achieve 2x faster performance in 1/2 the LoC
+		\item Lead designer and developer of our Graph Projection implementation; optimized for runtime sparsity characteristics without introducing virtualization overhead; enabled core customer workflows
 		\item Presented relevant graph research (Algorithms, Data Structures, GNNs) to Graph Engine team; led design discussions; wrote and reviewed design documents (RFCs); performed code review
 	\end{rSubsection}
 
@@ -73,18 +73,30 @@
 
 	\begin{rSubsection}{UCLA Sensors and Technology Lab}{October 2019 - May 2021}{Research Assistant}{Los Angeles, CA}
 		\item Co-authored “Improving precision of material extrusion 3D printing by in-situ monitoring \& predicting 3D geometric deviation using conditional adversarial networks” (\textit{Additive Manufacturing 2021})
-		\item Achieved more accurate predictions of 3D print deviations for freeform benchmarking shapes than other research groups (99.2\% of test data within ±0.15 mm)
-		\item Led research project (team of 2) after Dr. Li (previous lead) graduated; improved data pipeline, trained and evaluated volumetric GANs using TensorFlow; co-wrote grant proposal
+		\item Led research team of 2 after Dr. Li (previous lead) graduated; rewrote data pipeline in python, speeding it up 8x; trained and evaluated volumetric GANs using TensorFlow; co-wrote grant proposal;
 	\end{rSubsection}
 
 	%------------------------------------------------
 
 	\begin{rSubsection}{Intel}{June 2020 - September 2020}{Software Engineer}{Los Angeles, CA}
-		\item Developed a high-performance Direction-Optimizing Parallel BFS program in C++ with SYCL; achieved a 5\% speed gain over GAP Benchmark Suite’s BFS on kron benchmark graph
+		\item Developed a high-performance Direction-Optimizing Parallel BFS program in C++ with SYCL; achieved 5\% speed gain over GAP Benchmark baseline; presented performance hotspots to the compiler team
 	\end{rSubsection}
 
 \end{rSection}
 
+%----------------------------------------------------------------------------------------
+%	PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Projects}
+
+	\begin{rSubsection}{Speech Classification on STM32 Nucleo-144 Embedded System}{October 2021 - April 2021}{}{}
+		\item Designed and trained a lightweight (21,338 parameters) CRNN in TensorFlow on a subset of the Google Speech Commands Dataset (14 commands) yielding 94.7\% test accuracy using Google Colab
+		\item Implemented forward propagation and async speech processing in C (Convolutional, Pooling, GRU, and Dense layers)
+		\item Achieved 85\% accuracy and $<$ 1s latency on the microcontroller (discrepancy in accuracy due to AGC on the mic amp)
+	\end{rSubsection}
+
+\end{rSection}
 %----------------------------------------------------------------------------------------
 %	TECHNICAL STRENGTHS SECTION
 %----------------------------------------------------------------------------------------
@@ -92,9 +104,9 @@
 \begin{rSection}{Technical Strengths}
 
 	\begin{tabular}{@{} >{\bfseries}l @{\hspace{6ex}} l @{}}
-		Computer Languages & C++/C, Python, Golang, Lua, Bash                                              \\
+		Computer Languages & C++/C, Python, Golang, Lua, Bash, MATLAB                                      \\
 		Software Libraries & Boost, Arrow, Abseil, Pybind11, Numpy, Pandas, Dask, Tensorflow, Pytorch, Jax \\
-		Tools              & (Neo)Vim,
+		Tools              & Unix, Git, Perf, Vtune, GDB, (Neo)Vim, Tmux
 	\end{tabular}
 
 \end{rSection}
